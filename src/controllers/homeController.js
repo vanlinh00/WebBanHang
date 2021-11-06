@@ -1,6 +1,14 @@
+const product = require('../models/product.models');
 
-let getHomePage = (req, res) => {
-    return res.render('index.ejs');
+let getHomePage =  (req, res) => {
+
+     product.get_all(function (data) {
+        //     keyres.send({ result: data });
+       console.log(data);
+       res.render('index.ejs', { title: 'product List1', dataproduct: data });
+      });
+   //return res.render('index.ejs');
+  
 }
 
 let getAboutPage = (req, res) => {
@@ -14,6 +22,9 @@ let getcheckoutPage = (req, res) => {
 let getsinglePage = (req, res) => {
     return res.render('single.ejs');
 }
+let getloginPage = (req, res) => {
+    return res.render('login.ejs');
+}
 // object: {
 //     key: '',
 //     value: ''
@@ -22,5 +33,6 @@ module.exports = {
     getHomePage: getHomePage,
     getAboutPage: getAboutPage,
     getcheckoutPage:getcheckoutPage,
-    getsinglePage:getsinglePage
+    getsinglePage:getsinglePage,
+    getloginPage:getloginPage
 }

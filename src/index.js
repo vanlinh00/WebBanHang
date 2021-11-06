@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import viewEngine from "./config/viewEngine";
+import db from "./config/db_connection";
 import initWebRoutes from './route/web';
 require('dotenv').config();
 
@@ -20,4 +21,5 @@ let port = process.env.PORT || 1010;
 app.listen(port, () => {
     //callback
     console.log("Backend Nodejs is runing on the port : " + port)
+  
 })

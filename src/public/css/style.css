@@ -4,6 +4,8 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
+
 html, body{
 	margin:0;
 	font-size: 100%;
@@ -5093,4 +5095,5 @@ td.invert-image a img {
     margin: 5px auto 6px;
 }
 }
+
 /*-- //responsive media queries --*/

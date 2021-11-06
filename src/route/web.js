@@ -10,6 +10,7 @@ let initWebRoutes = (app) => {
     router.get('/checkout.html', homeController.getcheckoutPage);
     //single.html
     router.get('/single.html', homeController.getsinglePage);
+    router.get('/login.html', homeController.getloginPage);
     return app.use("/", router);
 }
 
