@@ -13,6 +13,7 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } </script>
+
 	<!-- //for-mobile-apps -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- pignose css -->
@@ -35,10 +36,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'
 		rel='stylesheet' type='text/css'>
 	<script src="js/jquery.easing.min.js"></script>
+	
+
+
+
 
 </head>
 
 <body>
+
 	<!-- header -->
 	<div class="header">
 		<div class="container">
@@ -221,7 +227,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- banner -->
 	<div class="page-head">
 		<div class="container">
-			<h3>Short Codes</h3>
+			<h3>Mua sắm trực tuyến miễn phí</h3>
+			<h3>Giảm đến 50%</h3>
 		</div>
 	</div>
 
@@ -373,15 +380,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<img src=<%=data.link_img%> alt="" class="pro-image-back">
 											<div class="men-cart-pro">
 												<div class="inner-men-cart-pro">
-													<a href="single.html" class="link-product-add-cart">Quick View</a>
+													<a href="/single?id=<%=data.id%>" class="link-product-add-cart">Quick View</a>
 												</div>
 											</div>
 											<span class="product-new-top">New</span>
 										</div>
 										<div class="item-info-product ">
-											<h4><a href="single.html">
-													<%=data.name_clothes%>
-												</a></h4>
+											<h4><a href="/single?id=<%=data.id%>"><%=data.name_clothes%>	</a></h4>
 											<div class="info-product-price">
 												<span class="item_price">$45.99</span>
 												<del>$69.71</del>
