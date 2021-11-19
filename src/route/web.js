@@ -1,19 +1,14 @@
 import express from "express";
-import homeController from "../controllers/homeController";
 import userController from "../controllers/userController";
+import homeController from "../controllers/homeController";
 let router = express.Router();
 
 let initWebRoutes = (app) => {
-    router.get('/index.html', homeController.getHomePage);
-    router.get('/about', homeController.getAboutPage);
-    //checkout.html
-    router.get('/checkout', homeController.getcheckoutPage);
-    //single.html
-    router.get('/single', homeController.getsinglePage);
-    router.get('/login.html', homeController.getloginPage);
-    router.post('/login.html', homeController.getloginPage);
-    // router.post('/userlogin.html', userController.getuserloginPage);
-
+    //user
+    router.post('/signup', userController.createUser);
+   // router.post('/signin', userController.signinUser);
+    //product
+    router.get('/trangchu', homeController.gettrangchu);
     return app.use("/", router);
 }
 

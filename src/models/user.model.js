@@ -1,35 +1,69 @@
 const db = require('../config/db_connection');
-const User = function (user) {
-    this.id = user.id_user;
+const User = function (name, password) {
     this.name = user.name;
-    this.pass = user.pass;
-    this.fullinfo=function (){
-        return this.id+','+this.name;
-    }
+    this.password = user.password;
+  
+    
+    //     "name": "vanlinh",
+    //     "email":"canhac36h@gmail.com",
+    //     "password": "anhkhongha",
+    //     "phone": "0981691489",
+    //     "address": "Đạo Thượng - Tân hưng - Sóc sơn - Hà nội",
+   
+
 }
 
-User.checkUserPasser = (pass_user, result) =>{
-    db.query('SELECT * FROM username WHERE pass_user = ?',pass_user, (err, res) =>{
-        if (err){
-            console.log('Error check pass user', err);
-            result(err,null);
-        }else {
-            console.log('Check pass user successfully');
-            result(null, res);
+User.get_all = () => {
+    return new Promise((async (resolve, reject) => {
+        try {
+            db.query("SELECT * FROM user", function (err, alluser) {
+                if (err) {
+                    resolve(null);
+                } else {
+                    resolve(alluser);
+                }
+            });
+        } catch (e) {
+            reject(e);
         }
-    })
-}
+    }));
+};
 
-User.checkUserName = (name_user, result) =>{
-    db.query('SELECT * FROM username WHERE name_user = ?',name_user, (err, res) =>{
-        if (err){
-            console.log('Error check name user', err);
-            result(err,null);
-        }else {
-            console.log('Check name user successfully');
-            result(null, res);
+User.Create = function (datanew) {
+
+    return new Promise((async (resolve, reject) => {
+        try {
+            db.query("INSERT INTO user SET ?", datanew, function (err, user) {
+                if (err) {
+                    resolve(null);
+                } else {
+                 //   console.log("data hien ơ model");
+              //     console.log({id:user.insertId,...datanew});
+                   resolve({id:user.insertId,...datanew});
+                }
+            });
+        } catch (e) {
+            reject(e);
         }
-    })
-}
+    }));
 
+}
+User.checkEmail = function (emailuser) {
+
+    return new Promise((async (resolve, reject) => {
+        try {
+            db.query('SELECT * FROM user WHERE email = ?',emailuser, (err, res) =>{
+                if (err) {
+                    resolve(null);
+                } else {
+                    // sẽ lấy ra 1 mảng oject có email
+                    console.log(res);
+                    resolve(res);
+                }
+            });
+        } catch (e) {
+            resolve(e);
+        }
+    }));
+}
 module.exports = User;

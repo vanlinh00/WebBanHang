@@ -1,23 +1,35 @@
-const User = require('../models/user.model');
+const Userservice = require('../services/user.services');
+let getuserloginPage = async (req, res) => {
+    let data = await Userservice.getalluser();
+    console.log(data);
+}
 
-let getuserloginPage=(req, res) => {
+let createUser = async (req, res) => {
+    var User = {
+        "email": req.body.email,
+        "password": req.body.password,
+    }
+    // var User = {
+    //     "name": "vanlinh",
+    //     "email":"canhac36h@gmail.com",
+    //     "password": "anhkhongha",
+    //     "phone": "0981691489",
+    //     "address": "Đạo Thượng - Tân hưng - Sóc sơn - Hà nội",
+    // }
+    let ketqua = await Userservice.CheckCreateUser(User);
+    let data={
+        singup:ketqua,
+    }
+        return res.render('main.ejs',{data:data});
 
-    var name = req.body.username;
-    var password = req.body.password;
-    User.checkUserPasser(password, (err, user) => {
-        if (err) {
-         Erro.code1001();
-        } else {
-          if (user.length !== 0) {
-           return res.render('login.ejs', { title: 'product List1', req:"xin chao"+user[0].username });
-           //console.log("ok da dang  nhap thanh cong");
-          }
-          else{
-            return res.render('login.ejs', { title: 'product List1', req:"mat khau khong dung" });
-          }
-        }})
-    
- }
- module.exports = {
-    getuserloginPage:getuserloginPage
+    console.log(data);
+}
+let signinUser = async (req, res) => {
+
+}
+
+
+module.exports = {
+    getuserloginPage: getuserloginPage,
+    createUser:createUser,
 }
