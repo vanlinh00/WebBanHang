@@ -6,14 +6,20 @@ const product = function (product) {
 
 }
 
-product.get_all = function (result) {
-    db.query("SELECT * FROM tbl_clothes", function (err, user) {
-        if (err) {
-            result(null);
-        } else {
-            result(user);
+product.get_all_product = function () {
+    return new Promise((async (resolve, reject) => {
+        try {
+            db.query("SELECT * FROM product", function (err, allproduct) {
+                if (err) {
+                    resolve(null);
+                } else {
+                    resolve(allproduct);
+                }
+            });
+        } catch (e) {
+            reject(e);
         }
-    });
+    }));
 }
 
 module.exports = product;
