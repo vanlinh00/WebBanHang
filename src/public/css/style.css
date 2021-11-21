@@ -4,6 +4,23 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+.edithwimge{
+	height: 130px;
+	width: 130px;
+}
+.infor-client{
+	margin-left:120px;
+   
+}
+.infor-client1{
+	color: #000;
+	font-size: 30px;
+}
+.form-1{
+	margin-left:250px;
+	margin-right:250px;
+	margin-bottom:0px;
+}
 .panel-login>.panel-heading {
 	color: #00415d;
 	background-color: #fff;
@@ -3889,6 +3906,7 @@ td.invert-image a img {
 	td.invert-image {
 		width: 27%;
 	}
+	
 	.checkout-left-basket ul {
 		padding: 0px 15px;
 	}

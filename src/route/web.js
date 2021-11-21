@@ -9,6 +9,13 @@ let initWebRoutes = (app) => {
    // router.post('/signin', userController.signinUser);
     //product
     router.get('/trangchu', homeController.gettrangchu);
+    router.get('/additemtrangchu', homeController.posttrangchu);
+
+    router.get('/checkout',homeController.getcheckout);
+
+    router.get('/single', homeController.getsingle);
+    router.get('/additemsingle', homeController.additemsingle);
+
     return app.use("/", router);
 }
 
