@@ -1,8 +1,4 @@
 const Userservice = require('../services/user.services');
-let getuserloginPage = async (req, res) => {
-    let data = await Userservice.getalluser();
-    console.log(data);
-}
 
 let createUser = async (req, res) => {
     var User = {
@@ -30,6 +26,5 @@ let signinUser = async (req, res) => {
 
 
 module.exports = {
-    getuserloginPage: getuserloginPage,
     createUser:createUser,
 }

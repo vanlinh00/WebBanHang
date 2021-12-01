@@ -4,6 +4,10 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+#messagesuccesorder{
+	color: rgb(245, 50, 16);
+	
+}
 .edithwimge{
 	height: 130px;
 	width: 130px;
@@ -1877,10 +1881,10 @@ h3.tittle {
 	background: url(../images/new2.jpg) no-repeat center;		
 }
 .contact-grid1{
-	background: url(../images/new3.jpg) no-repeat center;
+	background: url(../images/lavender-clothing-351496.jpg) no-repeat center;
 }
 .contact-grid3{
-	background: url(../images/new4.jpg) no-repeat center;
+	background: url(../images/mycoco-351484.jpg) no-repeat center;
 }
 .contact-grid h4 {
     color: #FDA30E;

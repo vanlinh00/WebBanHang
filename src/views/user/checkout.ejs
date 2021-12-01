@@ -27,7 +27,11 @@
 									<td class="invert-closeb">
 										<div class="rem">
 											<!-- <div class="close1"> </div> -->
-											<button onclick="deleteItem('data<%=data.id%>')">X</button>
+											<!-- <button onclick="deleteItem('data<%=data.id%>')">X</button> -->
+											<button>
+												<a href="/checkoutdeleteit?id=<%=data.id%>" >Delete</a>
+											</button>
+											
 										</div>
 									</td>
 									<!-- class="invert-image" -->
@@ -50,7 +54,7 @@
 											</div>
 										</div>
 									</td>
-									<td class="invert">Hand Bag</td>
+									<td class="invert"><%=data.name%></td>
 									<td class="invert" id="price<%=data.id%>"><span>240</span></td>
 
 									<script>
@@ -84,15 +88,20 @@
 								Shopping</a>
 						</div>
 						<div class="checkout-left-basket animated wow slideInLeft" data-wow-delay=".5s">
-							<h4>Shopping basket</h4>
+							<h4>Thành Tiền</h4>
 							<ul>
-								<li>Hand Bag <i>-</i> <span>$45.99</span></li>
-								<li>Watches <i>-</i> <span>$45.99</span></li>
-								<li>Sandals <i>-</i> <span>$45.99</span></li>
-								<li>Wedges <i>-</i> <span>$45.99</span></li>
-								<li>Total <i>-</i> <span>$183.96</span></li>
+								<% if(allproduct.length!=0){ var i=1; allproduct.forEach(function(data){ %>
+
+								<li><%=data.name%><i>-</i> <span><%=data.price%></span></li>
+								<% i++; }) %>
+									<% } else{ %>
+										<% } %>
 							</ul>
+							<button>
+								<a href="/order" >Thanh toán</a>
+							</button>
 						</div>
+					
 						<div class="clearfix"> </div>
 					</div>
 				</div>

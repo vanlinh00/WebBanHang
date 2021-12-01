@@ -72,10 +72,48 @@ let CheckCreatecartuser = (newitem) => {
         }
     }));
 };
+let checklishidincart = (listidproduct) => {
+    return new Promise((async (resolve, reject) => {
+        try {
+            var listproduct=[];
+            for(let i=0;i<listidproduct.length;i++){
+                let product = await Productmodel.checkidproduct(listidproduct[i]);
+                 if(product!=null||product!=undefined)
+                 {
+                    listproduct.push(product[0]);
+                 }       
+             }
+             resolve(listproduct);
+        } catch (e) {
+            reject(e);
+        }
+    }));
+};
+let getpriceitemincart = (listidproduct) => {
+    return new Promise((async (resolve, reject) => {
+        try {
+            var priceallitem=0;
+            for(let i=0;i<listidproduct.length;i++){
+                let product = await Productmodel.checkidproduct(listidproduct[i]);
+                 if(product!=null||product!=undefined)
+                 {
+                    priceallitem+=parseInt(product[0].price);
+                    console.log(parseInt(product[0].price));
 
+                 }       
+             }
+             console.log(priceallitem+".000");
+             resolve(priceallitem+".000");
+        } catch (e) {
+            reject(e);
+        }
+    }));
+};
 module.exports = {
     getallitem: getallitem,
     CheckCreatecartuser: CheckCreatecartuser,
     checkproductbyid:checkproductbyid,
+    checklishidincart:checklishidincart,
+    getpriceitemincart:getpriceitemincart,
 
 }
